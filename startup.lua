@@ -5,7 +5,7 @@ term.clear()
 term.setCursorPos(1,1)
 
 
-_G.Text = require("WinBlocks.text")
+_G.Textbox = require("WinBlocks.text")
 _G.Event = require("WinBlocks.event")
 _G.Screen = require("WinBlocks.screen")
 _G.Shape = require("WinBlocks.shape")

@@ -1,4 +1,4 @@
-Shape = {
+local Shape = {
     ShapeTypes = {
         "Block"
     }
