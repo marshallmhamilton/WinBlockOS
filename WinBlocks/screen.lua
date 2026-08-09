@@ -15,22 +15,17 @@ end
 function Screen.RunScreen()
     local error = false
 
-    local width, height = term.getSize()
-
-    local text = "hello world"
-
     while not error do
 
         
-
+        
         --render loop
         term.clear()
         
         for index, object in pairs(Screen.Objects) do
             object:draw()
         end
-        sleep()
-    
+        local e,p = os.pullEvent()
 
 
     end
