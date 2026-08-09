@@ -29,9 +29,9 @@ function Screen.RunScreen()
             object:draw()
         end
         sleep(0.1)
-        Screen.Text.Position.X = Screen.Text.Position.X + 1
-        if Screen.Text.Position.X > Screen.Height then
-            Screen.Text.Position.X = 0
+        Screen.Text.Position.x = Screen.Text.Position.x + 1
+        if Screen.Text.Position.x > Screen.Height then
+            Screen.Text.Position.x = 0
         end
 
         
