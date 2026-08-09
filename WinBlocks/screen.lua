@@ -7,7 +7,7 @@ local Screen = {
 function Screen.Init()
     term.setGraphicsMode(2)
     Screen.Text = _G.Textbox.new("Hello World",{x=10,y=10},1)
-    Screen.Text.Velocity = {100,0}
+    Screen.Text.Velocity = {x=100,y=0}
     Screen.Text.Moves = true
     table.insert(Screen.Objects,Screen.Text)
     Screen.Width, Screen.Height = term.getSize(2)
