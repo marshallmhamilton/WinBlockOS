@@ -41,6 +41,7 @@ function Screen.RunScreen()
             end
             term.setFrozen(false)
         end
+        sleep()
        
         
 
