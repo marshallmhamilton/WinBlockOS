@@ -91,7 +91,8 @@ end
 
 function Textbox:draw()
     local cursor = 0
-    for char in self.String:gmatch(".") do
+    for i=1, #self.String do
+        local char = string.sub(i,i)
         write(char.."\n")
         if not Textbox.letters[char] then char = '?' end
 
