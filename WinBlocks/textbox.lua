@@ -84,7 +84,7 @@ Textbox.__index = Textbox
 function Textbox.new(str, pos, scale)
     local self = setmetatable({},Textbox)
     self.String = str
-    self.Scale = scale or 5
+    self.Scale = scale or 1
     self.Position = pos or {x=0,y=0}
     return self
 end
@@ -97,7 +97,7 @@ function Textbox:draw()
         if not Textbox.letters[char] then char = '?' end
 
         for index,pos in pairs(Textbox.letters[char]) do
-            _G.Shape.DrawSquare((( cursor * 14 * self.Scale ) + (pos.x * 2 * self.Scale)) + self.Position.x, (pos.y * 2 * self.Scale) + self.Position.y, self.Scale * 2)
+            _G.Shape.DrawSquare((( cursor * 7 * self.Scale ) + (pos.x * self.Scale)) + self.Position.x, (pos.y  * self.Scale) + self.Position.y, self.Scale)
         end
         cursor = cursor + 1
         
