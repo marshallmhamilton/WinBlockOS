@@ -25,7 +25,7 @@ function Event.new()
 end
 
 function Event:Connect(thread)
-    local connection = Connection(thread)
+    local connection = Connection.new(thread)
     table.insert(self.Connections,connection)
     return connection
 end

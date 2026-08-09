@@ -1,6 +1,5 @@
 local Tick = {
     lastTick = 0,
-
 }
 
 function Tick.Delta()

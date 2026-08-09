@@ -1,46 +1,53 @@
 local Screen = {
     Objects = {},
     Width = 0, 
-    Height = 0
+    Height = 0,
+    OnFrame = _G.Event.new()
 }
+
+function Screen.LoadDisplay(display)
+    Screen.Objects = {}
+
+    display.Open()
+
+end
 
 function Screen.Init()
     term.setGraphicsMode(2)
-    Screen.Text = _G.Textbox.new("Hello World",{x=10,y=10},1)
-    Screen.Text.Velocity = {x=50,y=0}
-    Screen.Text.Moves = true
-    table.insert(Screen.Objects,Screen.Text)
     Screen.Width, Screen.Height = term.getSize(2)
+
+    Screen.LoadDisplay(require("WinBlocks.displays.menu"))
 end
 
 function Screen.RunScreen()
-    local error = false
-    -- refresh loop
+    _G.error = false
     local delta = 0
-    while not error do
+    local frames = 0
+    while not _G.error do
+        frames = frames + 1
         
-        term.setFrozen(true)
         delta = _G.Tick.Delta()
         
-        
-        --10 fps
-        if delta >= (1/10) then
-             --doing calculations
-            for _, object in pairs(Screen.Objects) do
-                if object.Moves then _G.Physics.runVelocity(object,delta) end
-            end
 
-            
-            -- drawing frame
-            term.clear()
-            
-            for _, object in pairs(Screen.Objects) do
-                object:draw()
-            end
-            term.setFrozen(false)
+        
+        for index, object in pairs(Screen.Objects) do
+            if object.Moves then object:Move() end
         end
-        sleep()
-       
+
+        term.clear()
+            
+           
+
+        for i=1, #Screen.Objects do
+            local object = Screen.Objects[i]
+            object:Draw()
+        end
+        Screen.OnFrame:Fire(frames)
+        sleep(_G.Config.Display.RefreshRate)
+        
+        
+        
+        
         
 
     end

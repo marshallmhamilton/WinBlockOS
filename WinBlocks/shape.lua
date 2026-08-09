@@ -5,8 +5,9 @@ local Shape = {
 
 }
 
-function Shape.DrawSquare(x,y,scale)
-    term.drawPixels(x,y,term.getPaletteColor(colors.white),scale,scale)
+function Shape.DrawBox(start,size,color)
+   -- if size.x == 1 then error() end
+    term.drawPixels(start.x,start.y,color,size.x,size.y)
 end
 
 return Shape

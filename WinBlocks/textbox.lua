@@ -82,25 +82,47 @@ local Textbox = {
 }}
 Textbox.__index = Textbox
 
-function Textbox.new(str, pos, scale)
+function Textbox.new(str, pos, scale, parent)
     local self = setmetatable({},Textbox)
     self.String = str
-    self.Moves = false
-    self.Velocity = {x=0,y=0}
     self.Scale = scale or 1
     self.Position = pos or {x=0,y=0}
+    self.Parent = parent or nil
+    if parent then
+         self.Position.x = self.Parent.Position.x + self.Position.x
+         self.Position.y = self.Parent.Position.y + self.Position.y
+         parent.OnMove:Connect(function(movement)
+            self.Position.x = self.Position.x + parent.Velocity.x
+            self.Position.y = self.Position.y + parent.Velocity.y
+        end)
+    end
+   
+    
+
     return self
 end
 
-function Textbox:draw()
+function Textbox:CenterToParent()
+    local parentPos = self.Parent.Position
+    local parentSize = self.Parent.Size
+
+    self.Position.x = parentPos.x + (parentSize.x/2) - ((string.len(self.String) * 3.5))
+    self.Position.y = parentPos.y + (parentSize.y/2) - 4
+end
+
+function Textbox:Draw()
+
+    
+
     local cursor = 0
     for i=1, #self.String do
+        
         local char = self.String:sub(i,i)
         write(char.."\n")
         if not Textbox.letters[char] then char = '?' end
 
         for index,pos in pairs(Textbox.letters[char]) do
-            _G.Shape.DrawSquare((( cursor * 7 * self.Scale ) + (pos.x * self.Scale)) + self.Position.x, (pos.y  * self.Scale) + self.Position.y, self.Scale)
+            _G.Shape.DrawBox({x=(( cursor * 6 * self.Scale ) + (pos.x * self.Scale)) + self.Position.x, y=(pos.y  * self.Scale) + self.Position.y}, {x=self.Scale,y=self.Scale},0)
         end
         cursor = cursor + 1
         
