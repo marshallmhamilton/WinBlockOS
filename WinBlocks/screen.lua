@@ -1,5 +1,7 @@
 local Screen = {
-    Objects = {}
+    Objects = {},
+    Width = 0, 
+    Height = 0
 }
 
 function Screen.DrawBottomSqaure(shape)
@@ -8,8 +10,9 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(1)
-   
-    table.insert(Screen.Objects,_G.Textbox.new("hi",{x=10,y=10},1))
+    Screen.Text = _G.Textbox.new("hi",{x=10,y=10},1)
+    table.insert(Screen.Objects,Screen.Text)
+    Screen.Width, Screen.Height = term.getSize(1)
 end
 
 function Screen.RunScreen()
@@ -25,8 +28,14 @@ function Screen.RunScreen()
         for index, object in pairs(Screen.Objects) do
             object:draw()
         end
-        local e,p = os.pullEvent()
+        sleep(0.1)
+        Screen.Text.Position.X = Screen.Text.Position.X + 1
+        if Screen.Text.Position.X > Screen.Height then
+            Screen.Text.Position.X = 0
+        end
 
+        
+        
 
     end
 end
