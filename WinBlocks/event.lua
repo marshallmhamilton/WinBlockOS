@@ -1,4 +1,4 @@
-Event,Connection = {}, {}
+local Event,Connection = {}, {}
 Event.__index, Connection.__index = Event, Connection
 
 function Connection.new(thread)

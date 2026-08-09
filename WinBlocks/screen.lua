@@ -1,4 +1,4 @@
-Screen = {
+local Screen = {
     Objects = {}
 }
 
