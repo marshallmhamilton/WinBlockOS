@@ -6,7 +6,7 @@ local Shape = {
 }
 
 function Shape.DrawSquare(x,y,scale)
-    term.drawPixels(x,y,255,scale,scale)
+    term.drawPixels(x,y,colors.white,scale,scale)
 end
 
 return Shape
