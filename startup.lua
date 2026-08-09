@@ -1,3 +1,4 @@
+term.clear()
 _G.error = false
 
 local width, height = term.getSize()
