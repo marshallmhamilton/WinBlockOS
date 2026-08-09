@@ -8,8 +8,8 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(2)
-    term.write(_G.Text)
-    table.insert(Screen.Objects,_G.Text.new("hi"))
+   
+    table.insert(Screen.Objects,_G.Text.new("hi",nil,nil))
 end
 
 function Screen.RunScreen()
