@@ -2,7 +2,7 @@ local Event,Connection = {}, {}
 Event.__index, Connection.__index = Event, Connection
 
 function Connection.new(thread)
-    local self = setmetatable({})
+    local self = setmetatable({},Connection)
     self.Thread = thread
     return self
 end
@@ -16,7 +16,7 @@ function Connection:Call(...)
 end
 
 function Event.new()
-    local self = setmetatable({})
+    local self = setmetatable({},Event)
     
     self.Connections = {}
     self.TimesFired = 0

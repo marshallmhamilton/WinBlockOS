@@ -82,7 +82,7 @@ local Textbox = {
 Textbox.__index = Textbox
 
 function Textbox.new(str, pos, scale)
-    local self = setmetatable({})
+    local self = setmetatable({},Textbox)
     self.String = str
     self.Scale = scale or 5
     self.Position = pos or {x=0,y=0}
