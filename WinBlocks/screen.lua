@@ -8,10 +8,8 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(2)
-    for index, thing in pairs(_G.Textbox) do
-        write(index)
-    end
-    table.insert(Screen.Objects,_G.Textbox.new("hi",nil,nil))
+   
+    table.insert(Screen.Objects,_G.Textbox.new("hi",{x=10,y=10},1))
 end
 
 function Screen.RunScreen()
