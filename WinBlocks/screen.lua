@@ -19,9 +19,10 @@ function Screen.RunScreen()
     local delta = 0
     while not error do
         
+        term.setFrozen(true)
         delta = _G.Tick.Delta()
         
-        term.setFrozen(true)
+        
         --10 fps
         if delta >= (1/10) then
              --doing calculations
