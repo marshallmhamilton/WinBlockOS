@@ -3,16 +3,11 @@ term.setCursorPos(1,1)
 
 
 _G.Textbox = require("WinBlocks.textbox")
-_G.Connection,_G.Event = require("WinBlocks.event")
+_G.Event,_G.Connection = require("WinBlocks.event")
 _G.Screen = require("WinBlocks.screen")
 _G.Shape = require("WinBlocks.shape")
 
-for index, thing in pairs(_G.Textbox) do
-    write(index.."\n")
-end
-for index, thing in pairs(_G.Event) do
-    write(index.."\n")
-end
+
 _G.Screen.Init()
 _G.Screen.RunScreen()
 
