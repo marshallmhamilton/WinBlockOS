@@ -8,7 +8,9 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(2)
-    
+    for _, thing in _G.Textbox do
+        write(thing)
+    end
     table.insert(Screen.Objects,_G.Textbox.new("hi",nil,nil))
 end
 
