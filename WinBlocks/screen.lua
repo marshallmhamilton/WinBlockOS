@@ -7,7 +7,7 @@ function Screen.DrawBottomSqaure(shape)
 end
 
 function Screen.Init()
-    term.setGraphicsMode(1)
+    --term.setGraphicsMode(1)
    
     table.insert(Screen.Objects,_G.Textbox.new("hi",{x=10,y=10},1))
 end
@@ -20,7 +20,7 @@ function Screen.RunScreen()
         
         
         --render loop
-        term.clear()
+        --term.clear()
         
         for index, object in pairs(Screen.Objects) do
             object:draw()

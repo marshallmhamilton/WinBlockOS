@@ -97,7 +97,7 @@ function Textbox:draw()
         if not Textbox.letters[char] then char = '?' end
 
         for index,pos in pairs(Textbox.letters[char]) do
-            --_G.Shape.DrawSquare((( cursor * 14 * self.Scale ) + (pos.x * 2 * self.Scale)) + self.Position.x, (pos.y * 2 * self.Scale) + self.Position.y, self.Scale * 2)
+            _G.Shape.DrawSquare((( cursor * 14 * self.Scale ) + (pos.x * 2 * self.Scale)) + self.Position.x, (pos.y * 2 * self.Scale) + self.Position.y, self.Scale * 2)
         end
         cursor = cursor + 1
         
