@@ -4,37 +4,44 @@ local Screen = {
     Height = 0
 }
 
-function Screen.DrawBottomSqaure(shape)
-
-end
-
 function Screen.Init()
     term.setGraphicsMode(2)
-    Screen.Text = _G.Textbox.new("hi",{x=10,y=10},1)
+    Screen.Text = _G.Textbox.new("Hello World",{x=10,y=10},1)
+    Screen.Text.Velocity = {100,0}
+    Screen.Text.Moves = true
     table.insert(Screen.Objects,Screen.Text)
     Screen.Width, Screen.Height = term.getSize(2)
 end
 
 function Screen.RunScreen()
     local error = false
-
+    -- refresh loop
+    local delta = 0
     while not error do
+        
+        delta = _G.Tick.Delta()
+        
+        term.setFrozen(true)
+        if delta >= (1/20) then
+             --doing calculations
+            
 
-        
-        
-        --render loop
-        term.clear()
-        
-        for index, object in pairs(Screen.Objects) do
-            object:draw()
-        end
-        sleep(0.05)
-        Screen.Text.Position.x = Screen.Text.Position.x + 1
-        if Screen.Text.Position.x > Screen.Width then
-            Screen.Text.Position.x = 0
-        end
+            
 
-        
+            for _, object in pairs(Screen.Objects) do
+                if object.Moves then _G.Physics.runVelocity(object,delta) end
+            end
+
+            
+            -- drawing frame
+            term.clear()
+            
+            for _, object in pairs(Screen.Objects) do
+                object:draw()
+            end
+            term.setFrozen(false)
+        end
+       
         
 
     end
