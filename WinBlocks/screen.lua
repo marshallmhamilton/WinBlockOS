@@ -7,7 +7,7 @@ local Screen = {
 function Screen.Init()
     term.setGraphicsMode(2)
     Screen.Text = _G.Textbox.new("Hello World",{x=10,y=10},1)
-    Screen.Text.Velocity = {x=100,y=0}
+    Screen.Text.Velocity = {x=50,y=0}
     Screen.Text.Moves = true
     table.insert(Screen.Objects,Screen.Text)
     Screen.Width, Screen.Height = term.getSize(2)
@@ -22,12 +22,9 @@ function Screen.RunScreen()
         delta = _G.Tick.Delta()
         
         term.setFrozen(true)
-        if delta >= (1/20) then
+        --10 fps
+        if delta >= (1/10) then
              --doing calculations
-            
-
-            
-
             for _, object in pairs(Screen.Objects) do
                 if object.Moves then _G.Physics.runVelocity(object,delta) end
             end
