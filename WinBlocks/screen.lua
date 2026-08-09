@@ -8,6 +8,7 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(2)
+    term.write(_G.Text)
     table.insert(Screen.Objects,_G.Text.new("hi"))
 end
 
@@ -25,7 +26,7 @@ function Screen.RunScreen()
         --render loop
         term.clear()
         
-        for index, object in pairs(_G.Screen.Objects) do
+        for index, object in pairs(Screen.Objects) do
             object:Draw()
         end
 
