@@ -1,14 +1,15 @@
-_G.Shape = {
+Shape = {
     ShapeTypes = {
         "Block"
     }
 
 }
 
-function _G.Shape.DrawSquare(x,y,scale)
+function Shape.DrawSquare(x,y,scale)
     term.drawPixels(x,y,"FFFFFF",scale,scale)
 end
 
+return Shape
 
 
 

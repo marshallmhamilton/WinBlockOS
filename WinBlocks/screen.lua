@@ -1,24 +1,24 @@
-_G.Screen = {
+Screen = {
     Objects = {}
 }
 
-function _G.Screen.DrawBottomSqaure(shape)
+function Screen.DrawBottomSqaure(shape)
 
 end
 
-function _G.Screen.Init()
+function Screen.Init()
     term.setGraphicsMode(2)
     table.insert(_G.Screen.Objects,_G.Text.new("hi"))
 end
 
-function _G.Screen.RunScreen()
-    _G.error = false
+function Screen.RunScreen()
+    local error = false
 
     local width, height = term.getSize()
 
     local text = "hello world"
 
-    while not _G.error do
+    while not error do
 
         local e,p = os.pullEvent()
 
@@ -34,3 +34,4 @@ function _G.Screen.RunScreen()
 
     end
 end
+return Screen

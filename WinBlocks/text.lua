@@ -78,10 +78,10 @@ local letters = {
   ["+"] = {{x=3,y=6},{x=3,y=5},{x=1,y=4},{x=2,y=4},{x=3,y=4},{x=4,y=4},{x=5,y=4},{x=3,y=3},{x=3,y=2}},
   ["="] = {{x=1,y=5},{x=2,y=5},{x=3,y=5},{x=4,y=5},{x=5,y=5},{x=1,y=3},{x=2,y=3},{x=3,y=3},{x=4,y=3},{x=5,y=3}},
 }
-_G.Text = {}
-_G.Text.__index = _G.Text
+Text = {}
+Text.__index = Text
 
-function _G.Text.new(str, pos, scale)
+function Text.new(str, pos, scale)
     local self = setmetatable({})
     self.String = str
     self.Scale = scale or 5
@@ -89,7 +89,7 @@ function _G.Text.new(str, pos, scale)
     return self
 end
 
-function _G.Text:draw()
+function Text:draw()
     local cursor = 0
     for char in self.String:gmatch(".") do
         if not letters[char] then char = '?' end
@@ -100,3 +100,5 @@ function _G.Text:draw()
 
     end
 end
+
+return Text
