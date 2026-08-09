@@ -1,4 +1,5 @@
 term.clear()
+term.setCursorPos(1,1)
 _G.error = false
 
 local width, height = term.getSize()
