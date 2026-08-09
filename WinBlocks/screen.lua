@@ -28,7 +28,7 @@ function Screen.RunScreen()
         for index, object in pairs(Screen.Objects) do
             object:draw()
         end
-        sleep(0.1)
+        sleep(0.05)
         Screen.Text.Position.x = Screen.Text.Position.x + 1
         if Screen.Text.Position.x > Screen.Width then
             Screen.Text.Position.x = 0
