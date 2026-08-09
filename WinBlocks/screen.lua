@@ -29,7 +29,7 @@ function Screen.RunScreen()
         for index, object in pairs(Screen.Objects) do
             object:draw()
         end
-
+        sleep()
     
 
 
