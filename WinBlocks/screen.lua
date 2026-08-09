@@ -29,7 +29,7 @@ function Screen.RunScreen()
         term.clear()
         
         for index, object in pairs(Screen.Objects) do
-            object:Draw()
+            object:draw()
         end
 
     
