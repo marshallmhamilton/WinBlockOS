@@ -84,6 +84,7 @@ Textbox.__index = Textbox
 function Textbox.new(str, pos, scale)
     local self = setmetatable({},Textbox)
     self.String = str
+    self.Moves = false
     self.Velocity = {0,0}
     self.Scale = scale or 1
     self.Position = pos or {x=0,y=0}
