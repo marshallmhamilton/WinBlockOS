@@ -23,7 +23,7 @@ function Screen.RunScreen()
 
     while not error do
 
-        local e,p = os.pullEvent()
+        
 
         --render loop
         term.clear()
