@@ -8,7 +8,7 @@ end
 
 function Screen.Init()
     term.setGraphicsMode(2)
-    table.insert(_G.Screen.Objects,_G.Text.new("hi"))
+    table.insert(Screen.Objects,_G.Text.new("hi"))
 end
 
 function Screen.RunScreen()
