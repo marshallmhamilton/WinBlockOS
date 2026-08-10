@@ -18,10 +18,11 @@ _G.Event,_G.Connection = require("WinBlocks.event")
 _G.Screen = require("WinBlocks.screen")
 _G.Shape = require("WinBlocks.shape")
 _G.Tick = require("WinBlocks.tick")
-
+_G.Input = require("WinBlocks.input")
 
 
 _G.Screen.Init()
-_G.Screen.RunScreen()
+parallel.waitForAny(_G.Input.Inputloop,_G.Screen.RunScreen)
+
 
 

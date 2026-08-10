@@ -4,15 +4,19 @@ Event.__index, Connection.__index = Event, Connection
 function Connection.new(thread)
     local self = setmetatable({},Connection)
     self.Thread = thread
+    self.Connected = true
     return self
 end
 
 function Connection:Disconnect()
     self.Thread = nil
+    self.Connected = false
 end
 
 function Connection:Call(...)
-    self.Thread(...)
+    if self.Connected then
+        self.Thread(...)
+    end
 end
 
 function Event.new()

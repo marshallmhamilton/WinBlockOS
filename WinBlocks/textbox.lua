@@ -87,13 +87,13 @@ function Textbox.new(str, pos, scale, parent)
     self.String = str
     self.Scale = scale or 1
     self.Position = pos or {x=0,y=0}
+    self.RelativePosition = {x=pos.x,y=pos.y}
     self.Parent = parent or nil
     if parent then
-         self.Position.x = self.Parent.Position.x + self.Position.x
-         self.Position.y = self.Parent.Position.y + self.Position.y
+         self.Position.x = self.Parent.Position.x + self.RelativePosition.x
+         self.Position.y = self.Parent.Position.y + self.RelativePosition.y
          parent.OnMove:Connect(function(movement)
-            self.Position.x = self.Position.x + parent.Velocity.x
-            self.Position.y = self.Position.y + parent.Velocity.y
+            self:RefreshPos()
         end)
     end
    
@@ -105,9 +105,14 @@ end
 function Textbox:CenterToParent()
     local parentPos = self.Parent.Position
     local parentSize = self.Parent.Size
+    self.RelativePosition.x = (parentSize.x/2) - ((string.len(self.String) * 3))
+    self.RelativePosition.y = (parentSize.y/2) - 4
+    self:RefreshPos()
+end
 
-    self.Position.x = parentPos.x + (parentSize.x/2) - ((string.len(self.String) * 3.5))
-    self.Position.y = parentPos.y + (parentSize.y/2) - 4
+function Textbox:RefreshPos()
+    self.Position.x = self.Parent.Position.x + self.RelativePosition.x
+    self.Position.y = self.Parent.Position.y + self.RelativePosition.y
 end
 
 function Textbox:Draw()
@@ -118,7 +123,7 @@ function Textbox:Draw()
     for i=1, #self.String do
         
         local char = self.String:sub(i,i)
-        write(char.."\n")
+      
         if not Textbox.letters[char] then char = '?' end
 
         for index,pos in pairs(Textbox.letters[char]) do
