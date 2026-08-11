@@ -27,9 +27,8 @@ function LoadingScreen.Open(screen)
     end)
 
     local inputwait = _G.Input.KeyDown:Connect(function(key,held)
-        
 
-        if key == 28 then
+        if key == keys.enter then
             LoadingScreen.Close()
             _G.Screen.LoadDisplay(_G.Displays.Menu)
         end

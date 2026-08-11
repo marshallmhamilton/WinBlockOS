@@ -7,8 +7,11 @@ local Screen = {
 }
 
 function Screen.LoadDisplay(display)
-    Screen.Objects = {}
+    --Screen.Objects = {}
 
+    for index in pairs(Screen.Objects) do
+        Screen.Objects[index] = nil
+    end
     display.Open(Screen)
 
 end
