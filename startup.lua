@@ -11,7 +11,10 @@ _G.GuiObjects = {}
 
 _G.GuiObjects.Box = require("WinBlocks.guiobjects.box")
 
+_G.Displays = {}
 
+_G.Displays.Loading = require("WinBlocks.displays.loadingscreen")
+_G.Displays.Menu = require("WinBlocks.displays.menu")
 
 _G.Textbox = require("WinBlocks.textbox")
 _G.Event,_G.Connection = require("WinBlocks.event")

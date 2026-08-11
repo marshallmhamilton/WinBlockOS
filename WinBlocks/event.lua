@@ -36,7 +36,11 @@ end
 
 function Event:Fire(...)
     for _, connection in pairs(self.Connections) do
-        coroutine.wrap(connection.Call)(connection,...)
+        local c = coroutine.create(function (...)
+            connection:Call(...)
+        end)
+
+        coroutine.resume(c,...)
     end
     self.TimesFired = self.TimesFired + 1
 end

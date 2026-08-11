@@ -23,7 +23,7 @@ function Menu.Open(screen)
 
     local buttonConnection = button.OnClick:Connect(function()
         Menu.Close()
-        screen.LoadDisplay(require("WinBlocks.displays.loadingscreen"))
+        screen.LoadDisplay(_G.Displays.Loading)
     end)
 
     table.insert(Menu.Connections,timeconnection)

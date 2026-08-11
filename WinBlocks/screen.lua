@@ -17,7 +17,7 @@ function Screen.Init()
     term.setGraphicsMode(2)
     Screen.Width, Screen.Height = term.getSize(2)
     
-    Screen.LoadDisplay(require("WinBlocks.displays.loadingscreen"))
+    Screen.LoadDisplay(_G.Displays.Loading)
     
 
 

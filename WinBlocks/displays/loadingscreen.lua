@@ -31,7 +31,7 @@ function LoadingScreen.Open(screen)
 
         if key == 28 then
             LoadingScreen.Close()
-            _G.Screen.LoadDisplay(require("WinBlocks.displays.menu"))
+            _G.Screen.LoadDisplay(_G.Displays.Menu)
         end
     end)
 

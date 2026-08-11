@@ -26,7 +26,8 @@ end
 function Input.Inputloop()
     while true do
         local event,param1,param2,param3 = os.pullEvent()
-        
+        if not event == "timer" then  write(event.."\n") end
+       
         if event == "key" then
             Input.KeyDown:Fire(param1,param2)
             Input.KeysDown[param1] = true
@@ -34,7 +35,7 @@ function Input.Inputloop()
             Input.KeyUp:Fire(param1,param2)
             Input.KeysDown[param1] = false
         elseif event == "mouse_click" then
-            write(event.." "..param1)
+            
             if param1 == 1 then
                 
                 Input.MouseButton1:Fire(param2,param3)
